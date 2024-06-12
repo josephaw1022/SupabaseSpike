@@ -1,0 +1,120 @@
+﻿@page "/"
+@using Dapper
+@using Npgsql
+@using System.Text.Json
+@inject NpgsqlConnection DbConnection
+@inject ILogger<Home> Logger
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<h3>
+    Here is the GraphQL response
+</h3>
+
+<br />
+
+@if (jsonDocument != null)
+{
+    <div style="border-bottom: 10px;">
+        @foreach (var account in jsonDocument.RootElement.GetProperty("data").GetProperty("accountCollection").GetProperty("edges").EnumerateArray())
+        {
+            var node = account.GetProperty("node");
+            <div>
+                <h4>Account: @node.GetProperty("email").GetString()</h4>
+                <p>Created At: @node.GetProperty("created_at").GetDateTime()</p>
+                <p>Updated At: @node.GetProperty("updated_at").GetDateTime()</p>
+
+                @if (node.TryGetProperty("blogCollection", out JsonElement blogCollection))
+                {
+                    @foreach (var blog in blogCollection.GetProperty("edges").EnumerateArray())
+                    {
+                        var blogNode = blog.GetProperty("node");
+                        <div style="margin-left:20px;">
+                            <h5>Blog: @blogNode.GetProperty("name").GetString()</h5>
+                            <p>Description: @blogNode.GetProperty("description").GetString()</p>
+                            <p>Created At: @blogNode.GetProperty("created_at").GetDateTime()</p>
+                            <p>Updated At: @blogNode.GetProperty("updated_at").GetDateTime()</p>
+
+                            @if (blogNode.TryGetProperty("blog_postCollection", out JsonElement blogPostCollection))
+                            {
+                                @foreach (var post in blogPostCollection.GetProperty("edges").EnumerateArray())
+                                {
+                                    var postNode = post.GetProperty("node");
+                                    <div style="margin-left:40px;">
+                                        <h6>Post: @postNode.GetProperty("title").GetString()</h6>
+                                        <p>Status: @postNode.GetProperty("status").GetString()</p>
+                                        <p>Created At: @postNode.GetProperty("created_at").GetDateTime()</p>
+                                        <p>Updated At: @postNode.GetProperty("updated_at").GetDateTime()</p>
+                                        <p>@postNode.GetProperty("body").GetString()</p>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+@code {
+    private JsonDocument jsonDocument;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var sqlQuery = @"
+        SELECT graphql.resolve($$
+        {
+            accountCollection {
+                edges {
+                    node {
+                        id,
+                        email,
+                        created_at,
+                        updated_at,
+                        blogCollection {
+                            edges {
+                                node {
+                                    id,
+                                    name,
+                                    description,
+                                    created_at,
+                                    updated_at,
+                                    blog_postCollection {
+                                        edges {
+                                            node {
+                                                id,
+                                                title,
+                                                body,
+                                                status,
+                                                created_at,
+                                                updated_at
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $$);
+        ";
+
+        var result = await DbConnection.QueryFirstOrDefaultAsync<string>(sqlQuery);
+
+        if (result != null)
+        {
+            jsonDocument = JsonDocument.Parse(result);
+        }
+    }
+}

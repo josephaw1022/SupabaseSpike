@@ -1,0 +1,48 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseSpike.AppHost", "SupabaseSpike.AppHost\SupabaseSpike.AppHost.csproj", "{F202544F-49BD-4320-B2AC-66371AAAE97A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseSpike.ServiceDefaults", "SupabaseSpike.ServiceDefaults\SupabaseSpike.ServiceDefaults.csproj", "{FB8D319C-C97D-4ABD-9017-1DA1458251C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseSpike.ApiService", "SupabaseSpike.ApiService\SupabaseSpike.ApiService.csproj", "{6A8E79DD-1826-45DD-BC5B-2EA4220E0CA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupabaseSpike.Web", "SupabaseSpike.Web\SupabaseSpike.Web.csproj", "{F6E389B7-BC67-48C5-82BC-DB4C091B8C47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupabaseSpike.DatabaseMigrations", "SupabaseSpike.DatabaseMigrations\SupabaseSpike.DatabaseMigrations.csproj", "{51D7D37F-F6C7-457A-9C6F-D068ACC50600}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F202544F-49BD-4320-B2AC-66371AAAE97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F202544F-49BD-4320-B2AC-66371AAAE97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F202544F-49BD-4320-B2AC-66371AAAE97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F202544F-49BD-4320-B2AC-66371AAAE97A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB8D319C-C97D-4ABD-9017-1DA1458251C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8D319C-C97D-4ABD-9017-1DA1458251C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8D319C-C97D-4ABD-9017-1DA1458251C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8D319C-C97D-4ABD-9017-1DA1458251C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A8E79DD-1826-45DD-BC5B-2EA4220E0CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A8E79DD-1826-45DD-BC5B-2EA4220E0CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A8E79DD-1826-45DD-BC5B-2EA4220E0CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A8E79DD-1826-45DD-BC5B-2EA4220E0CA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E389B7-BC67-48C5-82BC-DB4C091B8C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E389B7-BC67-48C5-82BC-DB4C091B8C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E389B7-BC67-48C5-82BC-DB4C091B8C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E389B7-BC67-48C5-82BC-DB4C091B8C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D7D37F-F6C7-457A-9C6F-D068ACC50600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D7D37F-F6C7-457A-9C6F-D068ACC50600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D7D37F-F6C7-457A-9C6F-D068ACC50600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D7D37F-F6C7-457A-9C6F-D068ACC50600}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84D17A69-A6AF-4B2E-9EEA-DFA5A9605F9E}
+	EndGlobalSection
+EndGlobal

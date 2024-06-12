@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>3f4e4374-3fd6-4f96-9914-cb1656a46b34</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SupabaseSpike.ApiService\SupabaseSpike.ApiService.csproj" />
+    <ProjectReference Include="..\SupabaseSpike.Web\SupabaseSpike.Web.csproj" />
+    <ProjectReference Include="..\SupabaseSpike.DatabaseMigrations\SupabaseSpike.DatabaseMigrations.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.1" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>
